@@ -11,9 +11,9 @@ const port = process.env.PORT ?? 3001; // Puerto para el backend
 
 console.log(port);
 // Middleware para habilitar CORS
-app.use(cors()); // <--- HABILITAR CORS (para todas las solicitudes en desarrollo)
+// app.use(cors()); // <--- HABILITAR CORS (para todas las solicitudes en desarrollo)
 //  Para producción, podrías querer restringirlo:
-// app.use(cors({ origin: ['http://localhost:4321', 'https://www.figma.com']
+app.use(cors({ origin: ["http://localhost:4321", "https://www.figma.com"] }));
 
 //  Middleware para parsear JSON en las solicitudes, es una caracteristica de express
 app.use(express.json());
