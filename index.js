@@ -13,7 +13,23 @@ console.log(port);
 // Middleware para habilitar CORS
 // app.use(cors()); // <--- HABILITAR CORS (para todas las solicitudes en desarrollo)
 //  Para producción, podrías querer restringirlo:
-app.use(cors({ origin: ["http://localhost:4321", "https://www.figma.com"] }));
+
+const ACCEPTED_ORIGINS = [
+  "http://localhost:3001",
+  "http://localhost:8080",
+  "https://www.figma.com",
+];
+
+const corsMiddleware = ({ acceptedOrigins = ACCEPTED_ORIGINS } = {}) =>
+  cors({
+    origin: (origin, callback) => {
+      if (acceptedOrigins.includes(origin)) {
+        callback(null, true);
+      }
+    },
+  });
+
+app.use(corsMiddleware());
 
 //  Middleware para parsear JSON en las solicitudes, es una caracteristica de express
 app.use(express.json());
