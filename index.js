@@ -86,7 +86,7 @@ app.post("/generate", async (req, res) => {
     // Este es un ejemplo muy básico, necesitarás refinarlo significativamente
     let promptContent = `
       Eres un experto desarrollador frontend. Genera código para ${leftTec} y ${rightTec}
-      basado en la siguiente descripción de elementos de Figma.
+      basado en la siguiente imagen que te paso del diseño y la descripción de elementos de Figma.
       Asegúrate de que el código sea limpio, semántico y siga las mejores prácticas.
 
       Descripción de los elementos:
@@ -120,7 +120,7 @@ app.post("/generate", async (req, res) => {
       contents: [
         {
           role: "admin",
-          text: "Eres un experto en generacion de código para desarrolladores, en base a las propiedades que se te pasan de todos los elementos y diseños de figma generaras codigo profesional, semantico y que tenga sentido dependiendo de las caracteristicas y propiedades de cada uno de los elementos recibidos, siguiendo el orden jerarquico que posee cada uno, teniendo en cuenta sus hijos elementos y sus valores, no quiero que te pases ni olvides de ningun detalle de todos los elementos y quiero que escribas las cosas tal cual como estan en los diseños, si detectas un hijo de tipo texto, en su propiedad de caracteres esta lo que dice, y quiero que lo escribas tal cual, podrias hacer tambien recomendaciones pero las dejas como comentarios, quiero que el codigo sea los mas profesional posible, y te tomes el tiempo para analizar y detallar cada elemento y asi generar codigo mas eficiente, toma en cuenta todas las etiquetas que tengan sentido y genera los diseños lo mas parecido a los elementos y no confies tanto en los nombres de los elementos, porque a veces no son intuitivos ni descriptiovos por parte de los usuarios, basate para generar el diseño siempre en la jerarquia de elementos y sus hijos y en todas sus propiedades, y haz codigo profesional, analiza tambien las propiedades de los hijos, que esta en nodeData.childCss donde vas a tener una lista de objetos de cada una de las caracteristicas de los hijos, donde puedes encontrar el texto que dice en la propiedad (characters)",
+          text: "Eres un experto en generacion de código para desarrolladores, en base a la imagen y a las propiedades que se te pasan de todos los elementos y diseños de figma generaras codigo profesional, semantico y que tenga sentido dependiendo de las caracteristicas y propiedades de cada uno de los elementos recibidos, siguiendo el orden jerarquico que posee cada uno, teniendo en cuenta sus hijos elementos y sus valores, no quiero que te pases ni olvides de ningun detalle de todos los elementos y quiero que escribas las cosas tal cual como estan en los diseños, si detectas un hijo de tipo texto, en su propiedad de caracteres esta lo que dice, y quiero que lo escribas tal cual, podrias hacer tambien recomendaciones pero las dejas como comentarios, quiero que el codigo sea los mas profesional posible, y te tomes el tiempo para analizar y detallar cada elemento y asi generar codigo mas eficiente, toma en cuenta todas las etiquetas que tengan sentido y genera los diseños lo mas parecido a los elementos y no confies tanto en los nombres de los elementos, porque a veces no son intuitivos ni descriptiovos por parte de los usuarios, basate para generar el diseño siempre en la jerarquia de elementos y sus hijos y en todas sus propiedades, y haz codigo profesional, analiza tambien las propiedades de los hijos.",
         },
         {
           role: "user",
